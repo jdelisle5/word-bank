@@ -1,10 +1,21 @@
-<div class="row col-sm-12">
-  <div class="col-sm-8">
-    <input type="text"/>
-  </div>
-  <div class="col-sm-4">
-    <select (onselect)="selectedWordBank = $event">
-      <option *ngFor="let wordBank of wordBanks" [ngValue]="wordBank.name">{{ wordBank.name }}</option>
-    </select>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-8">
+      <div class = "row">
+        <app-word-bank-word *ngFor="let word of selectedWordBank?.words"
+          [word]="word"
+          (save)="saveWord($event)"
+          (delete)="deleteWord($event)">
+        </app-word-bank-word>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" (click)="addWord()">Add Word</button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <select (onselect)="selectedWordBank = $event">
+        <option *ngFor="let wordBank of wordBanks" [ngValue]="wordBank.name">{{ wordBank.name }}</option>
+      </select>
+    </div>
   </div>
 </div>

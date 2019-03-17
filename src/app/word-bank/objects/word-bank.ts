@@ -8,6 +8,14 @@ export interface Word {
     synonyms: Array<string>;
 }
 
+/**
+ * @property saved true if the word has already been saved into the bank.
+ * @property saving transient state when user clicks to save word and word is being saved.
+ */
+export interface RowState {
+    saved: boolean;
+    saving: boolean;
+}
 
 export const testWordBanks: Array<WordBank> = [
     {

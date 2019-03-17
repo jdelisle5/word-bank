@@ -1,0 +1,16 @@
+<div class="row">
+    <div *ngIf="word.saved">
+        <div class="col-sm-3"> {{word.name}} </div>
+        <div class="col-sm-7"> {{word.synonyms}} </div>
+        <button class="col-sm-2" *ngIf="word.saved" class="btn btn-sm btn-danger" (click)="delete.emit(word)">Delete</button>
+    </div>
+    <div *ngIf="!word.saved">
+        <div class="col-sm-3">
+            <form [formGroup]="formGroup">
+                <input type="text" formControlName="name">
+            </form>
+        </div>
+        <div class="col-sm-7"> {{word.synonyms}} </div>
+        <button class="col-sm-2 btn btn-sm btn-primary" (click)="save.emit(formGroup.value)">Save</button>
+    </div> 
+</div>
