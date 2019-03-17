@@ -1,3 +1,10 @@
-<p>
-  word-bank works!
-</p>
+<div class="row col-sm-12">
+  <div class="col-sm-8">
+    <input type="text"/>
+  </div>
+  <div class="col-sm-4">
+    <select (onselect)="selectedWordBank = $event">
+      <option *ngFor="let wordBank of wordBanks" [ngValue]="wordBank.name">{{ wordBank.name }}</option>
+    </select>
+  </div>
+</div>
